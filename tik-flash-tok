@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash on Click with Sound</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: black;
+      transition: background-color 0.05s;
+    }
+  </style>
+</head>
+<body>
+  <audio id="tik-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
+  <audio id="tok-sound" src="https://www.soundjay.com/button/sounds/button-10.mp3" preload="auto"></audio>
+
+  <script>
+    function playTik() {
+      const tik = document.getElementById('tik-sound');
+      tik.currentTime = 0;
+      tik.play();
+    }
+
+    function playTok() {
+      const tok = document.getElementById('tok-sound');
+      tok.currentTime = 0;
+      tok.play();
+    }
+
+    document.body.addEventListener('mousedown', () => {
+      document.body.style.backgroundColor = 'white';
+      playTik();
+    });
+
+    document.body.addEventListener('mouseup', () => {
+      document.body.style.backgroundColor = 'black';
+      playTok();
+    });
+
+    document.body.addEventListener('touchstart', () => {
+      document.body.style.backgroundColor = 'white';
+      playTik();
+    });
+
+    document.body.addEventListener('touchend', () => {
+      document.body.style.backgroundColor = 'black';
+      playTok();
+    });
+  </script>
+</body>
+</html>
